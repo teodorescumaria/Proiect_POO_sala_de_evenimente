@@ -11,7 +11,7 @@ class Persoana
   public:
     Persoana(const std::string& nume = "", int anulNasterii = 2000);
     const std::string& getNume() const;
-    int getvarsta() const;
+    int getVarsta() const;
     bool esteCopil() const;
     bool esteSenior() const;
 };
