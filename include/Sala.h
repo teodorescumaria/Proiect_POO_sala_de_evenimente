@@ -2,7 +2,7 @@
 #define SALA_h
 #include <string>
 #include <vector>
-#include "loc.h"
+#include "Loc.h"
 
 class Sala
 {
