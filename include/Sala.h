@@ -1,10 +1,10 @@
-#ifndef sala_h
-#define sala_h
+#ifndef SALA_h
+#define SALA_h
 #include <string>
 #include <vector>
 #include "loc.h"
 
-class sala
+class Sala
 {
   private:
     std::string tip_sala;
