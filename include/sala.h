@@ -19,6 +19,7 @@ class sala
 
 //marcam un rand ca VIP
     void initializareLocuriVIP(int randVIP);
+
     bool esteLocVIP(int rand, int coloana);
     loc& getLoc(int rand, int coloana);
     void afisareLocuri() const;
