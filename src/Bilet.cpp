@@ -1,6 +1,6 @@
 #include "Bilet.h"
 
-Bilet::Bilet(cont Persoana& persoana, const Loc& loc, double pretBaza, const std::string& tipEveniment) : persoana(persoana), loc(loc), pretBaza(pretBaza), tipEveniment(tipEveniment) {}
+Bilet::Bilet(const Persoana& persoana, const Loc& loc, double pretDeBaza, const std::string& tipEveniment) : persoana(persoana), loc(loc), pretDeBaza(pretDeBaza), tipEveniment(tipEveniment) {}
 
 const Persoana& Bilet::getPersoana() const {
   return persoana;
