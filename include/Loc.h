@@ -1,7 +1,7 @@
-#ifndef loc_h
-#define loc_h
+#ifndef LOC_h
+#define LOC_h
 
-class loc
+class Loc
 {
   private:
     int rand;
