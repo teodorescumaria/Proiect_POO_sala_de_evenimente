@@ -10,7 +10,7 @@ class Sala
     std::string tip_sala;
     int randuri;
     int locuriPeRand;
-    std::vector<loc> locuri;
+    std::vector<Loc> locuri;
   public:
     sala(const std::string& tip_sala = "", int randuri = 1, int locuriPeRand = 1);
     const std::string& getTipSala() const;
@@ -21,7 +21,7 @@ class Sala
     void initializareLocuriVIP(int randVIP);
 
     bool esteLocVIP(int rand, int coloana);
-    loc& getLoc(int rand, int coloana);
+    Loc& getLoc(int rand, int coloana);
     void afisareLocuri() const;
 };
     
