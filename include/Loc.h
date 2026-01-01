@@ -14,5 +14,8 @@ class Loc
     int getColoana() const;
     bool esteVIP() const;
     bool este_Ocupat() const;
+
+    void ocupa();
+    void elibereaza();
 };
 #endif
