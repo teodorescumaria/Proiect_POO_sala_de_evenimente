@@ -11,6 +11,7 @@ class EvenimentTeatru : public Eveniment {
     EvenimentTeatru();
     EvenimentTeatru(const std::string& nume, const std::string& data, double pretBaza, const Sala& sala, const std::string& regizor, const std::string& trupa);
     EvenimentTeatru(const EvenimentTeatru& other);
+    EvenimentTeatru& operator=(const EvenimentTeatru& other);
 
   ~EvenimentTeatru() override = default;
 
