@@ -7,13 +7,13 @@ class Loc
     int rand;
     int coloana;
     bool esteVip;
-    bool esteOcupat;
+    bool ocupat;
   public:
-    explicit Loc(int rand = 1, int coloana = 1, bool esteVip = false, bool esteOcupat = false);
+    explicit Loc(int rand = 1, int coloana = 1, bool esteVip = false, bool ocupat = false);
     int getRand() const;
     int getColoana() const;
     bool esteVIP() const;
-    bool este_Ocupat() const;
+    bool esteOcupat() const;
 
     void ocupa();
     void elibereaza();
