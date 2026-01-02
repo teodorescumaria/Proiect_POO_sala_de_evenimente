@@ -61,4 +61,30 @@ bool operator==(const Eveniment& lhs, const Eveniment& rhs) {
   return lhs.getNume() == rhs.getNume() && lhs.getTip() == rhs.getTip() && lhs.getData() == rhs.getData();
 }
 
+std::ostream& operator<<(std::ostream& out, const Eveniment& e) {
+  out<< "Eveniment: "<<e.getTip()<<"] "<<"data: "<<e.getData()<<", durata: "<<e.getDurataMinute()<<" min"<<", pret baza: "<<e.getPretBaza()<<", sala: "<<e.getSala().getTipSala();
+  return out;
+}
+
+std::istream& operator>>(std::istream& in, Eveniment& e) {
+  std::string nume;
+  std::string tip;
+  std::string data;
+  double pret;
+  int durata;
+
+  std::string tipSala;
+  int randuri;
+  int locuriPeRand;
+
+  in>>std::ws;
+  std::getline(in, nume);
+
+  in>>tip>>data>>pret>>durata;
+  in>>tipSala>>randuri>>locuriPeRand;
+
+  e = Eveniment(nume, tip, data, pret, durata, Sala(tipSala, randuri, locuriPeRand));
+  return in;
+}
+
 
