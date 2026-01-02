@@ -29,5 +29,17 @@ public:
   const Sala& getsala() const;
   Sala& getSala();
 
+  static int getNrEvenimente();
+
+  bool operator<(const Eveniment ev) const;
+  virtual double calculeazaVenitMaximTeoretic() const;
+  virtual std::string descriere() const;
+
+  friend std::ostream& operator<<(std::ostream& out, const Eveniment& e);
+  friend std::istream& operator>>(std::istream& in, Eveniment& e);
+
 };
+
+bool operator==(const Eveniment& lhs, const Eveniment& rhs);
+
 #endif
