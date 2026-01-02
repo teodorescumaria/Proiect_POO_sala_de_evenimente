@@ -8,7 +8,7 @@ double BiletReducere::calculeazaPret() const {
   if(persoana.esteCopil()) {
     pret *= 0.5;
   }
-  else if(persoana.esteSenior(()) {
+  else if(persoana.esteSenior()) {
     pret*=0.7;
   }
   return pret;
