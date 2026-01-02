@@ -30,3 +30,24 @@ std::string Eveniment::descriere() const {
 int Eveniment::getNrEvenimente(){
   return nrEvenimente;
 }
+
+const std::string& Eveniment::getNume() const { return nume; }
+const std::string& Eveniment::getTip() const { return tip; }
+const std::string& Eveniment::getData() const { return data; }
+double Eveniment::getPretBaza() const {return pretBaza;}
+int Eveniment::getDurataMinute() const { return durataMinute; }
+const Sala& Eveniment::getSala() const { return sala; }
+Sala& Eveniment::getSala() { return sala; }
+
+Eveniment& Eveniment::operator=(const Eveniment& ev) {
+  if(this != &ev) {
+    nume = ev.nume;
+    tip = ev.tip;
+    data = ev.data;
+    pretBaza = ev.pretBaza;
+    durataMinute = ev.durataMinute;
+    sala = ev.sala;
+  }
+  return *this;
+}
+
