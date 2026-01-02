@@ -32,7 +32,7 @@ public:
 
   static int getNrEvenimente();
 
-  bool operator<(const Eveniment ev) const;
+  bool operator<(const Eveniment& ev) const;
   virtual double calculeazaVenitMaximTeoretic() const;
   virtual std::string descriere() const;
 
