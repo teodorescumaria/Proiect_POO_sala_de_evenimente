@@ -23,3 +23,4 @@ std::string BiletVip::descriere() const {
   }
   extrauri += ")";
   return "Bilet VIP | " + Bilet::descriere() + extrauri + " | Pret VIP: " + std::to_string(calculeazaPret());
+}
