@@ -21,3 +21,10 @@ EvenimentTeatru& EvenimentTeatru::operator=(const EvenimentTeatru& other) {
   }
   return *this;
 }
+
+const std::string& EvenimentTeatru::getRegizor() const {
+  return regizor;
+}
+const std::string& EvenimentTeatru::getTrupa() const {
+  return trupa;
+}
