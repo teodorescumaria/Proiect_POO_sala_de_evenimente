@@ -1,5 +1,5 @@
-#ifndef SALA_h
-#define SALA_h
+#ifndef SALA_H
+#define SALA_H
 #include <string>
 #include <vector>
 #include "Loc.h"
