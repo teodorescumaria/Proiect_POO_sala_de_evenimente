@@ -32,7 +32,7 @@ bool Sala::esteLocVIP(int rand, int coloana) {
     return false;
   }
   int index = (rand-1)* locuriPeRand +(coloana - 1);
-  return locuri[index].esteLocVIP();
+  return locuri[index].esteVIP();
 }
 
 Loc& Sala::getLoc(int rand, int coloana) {
