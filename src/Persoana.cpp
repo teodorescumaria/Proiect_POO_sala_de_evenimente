@@ -2,7 +2,7 @@
 
 Persoana::Persoana(const std::string& nume, int anulNasterii) : nume(nume), anulNasterii(anulNasterii) {}
 
-const std::string& Persoana::getNume() const {
+const std::string& Persoana::getNume() {
   return nume;
 }
 
