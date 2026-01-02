@@ -19,20 +19,20 @@ int Sala::getRanduri() const{
 int Sala::getLocuriPeRand() const {
   return locuriPeRand;
 }
-void Sala::initializareLocuriVip(int randVip) {
+void Sala::initializareLocuriVIP(int randVIP) {
   for(auto &loc : locuri) {
-    if(loc.getRand() == randVip) {
+    if(loc.getRand() == randVIP) {
       loc = Loc(loc.getRand(), loc.getColoana(), true, loc.esteOcupat());
     }
   }
 }
 
-bool Sala::esteLocVip(int rand, int coloana) {
+bool Sala::esteLocVIP(int rand, int coloana) {
   if(rand < 1 || rand > randuri || coloana < 1 || coloana > locuriPeRand) {
     return false;
   }
   int index = (rand-1)* locuriPeRand +(coloana - 1);
-  return locuri[index].esteVip();
+  return locuri[index].esteLocVIP();
 }
 
 Loc& Sala::getLoc(int rand, int coloana) {
@@ -43,11 +43,11 @@ Loc& Sala::getLoc(int rand, int coloana) {
 void Sala::afisareLocuri() const {
   std::cour << "SALA (" <<tip_sala<<") are "<<randuri<<" randuri si "<<locuriPeRand<<" locuri pe rand. \n";
   for(int r=1; r<=randuri, ++r) {
-    for(in c = 1; c<=locuriPeRand; ++c) {
+    for(int c = 1; c<=locuriPeRand; ++c) {
       int index(r-1)*locuriPeRand+(c-1);
       const Loc& loc = locuri[index];
       char simbol = '-';
-      if(loc.esteVip()) {
+      if(loc.esteVIP()) {
         simbol = 'V';
       }
       if(loc.esteOcupat()) { 
