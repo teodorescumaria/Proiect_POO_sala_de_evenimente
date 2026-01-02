@@ -51,3 +51,14 @@ Eveniment& Eveniment::operator=(const Eveniment& ev) {
   return *this;
 }
 
+bool Eveniment::operator<(const Eveniment& ev) const {
+  if(data != ev.data)
+    return data < ev.data;
+  return nume < ev.nume;
+}
+
+bool operator==(const Eveniment& lhs, const Eveniment& rhs) {
+  return lhs.getNume() == rhs.getNume() && lhs.getTip() == rhs.getTip() && lhs.getData() == rhs.getData();
+}
+
+
