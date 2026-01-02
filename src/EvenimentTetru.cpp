@@ -10,3 +10,14 @@ double EvenimentTeatru::calculeazaVenitMaximTeoretic() const {
 std::string EvenimentTeatru::descriere() const {
   return "TEATRU | " + Eveniment::descriere() + " | regizor: " + regizor + ", trupa: " + trupa;
 }
+
+EvenimentTeatru::EvenimentTeatru(const EvenimentTeatru&other) : Eveniment(other), regizor(other.regizor), trupa(other.trupa) {}
+
+EvenimentTeatru& EvenimentTeatru::operator=(const EvenimentTeatru& other) {
+  if(this != &other) {
+    Eveniment::operator=(other);
+    regizor = other.regizor;
+    trupa = other.trupa;
+  }
+  return *this;
+}
