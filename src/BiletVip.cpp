@@ -1,7 +1,7 @@
 #include "BiletVip.h"
 #include <string>
 
-BiletVip::BiletVip(const Persoana& persoana, const Loc& loc, double preDeBaza, const std::string& tipEveniment, bool arePopcorn, bool areBautura) : Bilet(persoana, loc, pretDeBaza, tipEveniment), arePopcorn(arePopcorn), areBautura(areBautura) {}
+BiletVip::BiletVip(const Persoana& persoana, const Loc& loc, double pretDeBaza, const std::string& tipEveniment, bool arePopcorn, bool areBautura) : Bilet(persoana, loc, pretDeBaza, tipEveniment), arePopcorn(arePopcorn), areBautura(areBautura) {}
 
 double BiletVip::calculeazaPret() const {
   double pret = pretDeBaza*1.3;
