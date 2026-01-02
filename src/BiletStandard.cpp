@@ -1,4 +1,5 @@
 #include "BiletStandard.h"
+#include <string>
 
 BiletStandard::BiletStandard(const Persoana& persoana, const Loc& loc, double pretDeBaza, const std::string& tipEveniment) : Bilet(persoana, loc, pretDeBaza, tipEveniment) {}
 
