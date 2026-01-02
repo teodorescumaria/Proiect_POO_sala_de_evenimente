@@ -24,9 +24,9 @@ public:
   const std::string& getNume() const;
   const std::string& getTip() const;
   const std::string& getData() const;
-  double getPretBAza() const;
+  double getPretBaza() const;
   int getDurataMinute() const;
-  const Sala& getsala() const;
+  const Sala& getSala() const;
   Sala& getSala();
 
   static int getNrEvenimente();
