@@ -5,8 +5,9 @@
 
 class BiletStandard : public Bilet
 {
-  BiletStandard(const Persoana& persoana, const Loc& loc, double pretDeBaza, const std::string& tipEveniment);
-  double calculeazaPret() const override;
-  std::string descriere() const override;
+  public:
+    BiletStandard(const Persoana& persoana, const Loc& loc, double pretDeBaza, const std::string& tipEveniment);
+    double calculeazaPret() const override;
+    std::string descriere() const override;
 };
 #endif
