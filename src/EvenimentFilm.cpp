@@ -1,6 +1,8 @@
 #include "EvenimentFilm.h"
 
 EvenimentFilm::EvenimentFilm() : Eveniment(), regizor(""), rating("") {}
+EvenimentFilm::EvenimentFilm(const std::string& nume, const std::string& data, double pretBaza, const Sala& sala, const std::string& regizor, const std::string& rating) : Eveniment(nume, "Film", data, pretBaza, sala), regizor(regizor), rating(rating) {}
+EvenimentFilm::EvenimentFilm(const EvenimentFilm &other) : Eveniment(other), regizor(other.regizor), rating(other.rating) {}
 
 double EvenimentFilm::calculeazaVenitMaximTeoretic() const {
     return Eveniment::calculeazaVenitMaximTeoretic() * 0.9;
