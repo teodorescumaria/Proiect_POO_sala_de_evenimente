@@ -19,6 +19,12 @@ private:
 public:
     ManagerEvenimente();
     ~ManagerEvenimente();
+
+    void adaugaEveniment(Eveniment* ev);
+    void afiseazaEvenimente() const;
+    Eveniment* gasesteEvenimentDupaNume(const std::string& nume) const;
+    
+
 };
 
 #endif
