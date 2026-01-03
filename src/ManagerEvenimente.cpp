@@ -39,3 +39,16 @@ Eveniment *ManagerEvenimente::gasesteEvenimentDupaNume(const std::string &nume) 
     }
     return nullptr;
 }
+
+Bilet *ManagerEvenimente::vindeBiletStandard(const Persoana &persoana, Eveniment &ev, int rand, int coloana) {
+    Sala& sala = ev.getSala();
+    Loc& loc = sala.getLoc(rand, coloana);
+    if (loc.esteOcupat()) {
+        std::cout<<"Locul ("<<rand<<", "<<coloana<<") este deja ocupat. \n";
+        return nullptr;
+    }
+    loc.ocupa();
+    Bilet* b = new BiletStandard(persoana, loc, ev.getPretBaza(), ev.getTip());
+    bileteVandute.push_back(b);
+    return b;
+}
