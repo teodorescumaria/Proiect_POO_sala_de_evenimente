@@ -87,3 +87,15 @@ Bilet* ManagerEvenimente::vindeBiletVip(const Persoana& persoana, Eveniment& ev,
     bileteVandute.push_back(b);
     return b;
 }
+
+void ManagerEvenimente::afiseazaBilete() const {
+    if (bileteVandute.empty()) {
+        std::cout<<"Nu exista bilete vandute. \n";
+        return;
+    }
+    std::cout<<"Lista bilete vandute: \n";
+    for (std::size_t i = 0; i < bileteVandute.size(); ++i) {
+        std::cout<<i+1<<". "<<bileteVandute[i]->descriere()<<" | pret final: "<<bileteVandute[i]->calculeazaPret()<<"\n";
+    }
+}
+
