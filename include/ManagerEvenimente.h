@@ -23,7 +23,13 @@ public:
     void adaugaEveniment(Eveniment* ev);
     void afiseazaEvenimente() const;
     Eveniment* gasesteEvenimentDupaNume(const std::string& nume) const;
-    
+
+    Bilet* vindeBiletStandard(const Persoana& persoana, Eveniment& ev, int rand, int coloana);
+    Bilet* vindeBiletReducere(const Persoana& persoana, Eveniment& ev, int rand, int coloana);
+    Bilet* vindeBiletVip(const Persoana& persoana, Eveniment& ev, int rand, int coloana, bool arePopcorn, bool areBautura);
+
+    void afiseazaBilete() const;
+    double calculeazaIncasariTotale() const;
 
 };
 
