@@ -16,5 +16,8 @@ public:
     ~EvenimentFilm() override = default;
     const std::string& getRegizor() const;
     const std::string& getRating() const;
+
+    double calculeazaVenitMaximTeoretic() const override;
+    std::string descriere() const override;
 };
 #endif
