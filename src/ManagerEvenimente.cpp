@@ -71,4 +71,19 @@ Bilet *ManagerEvenimente::vindeBiletReducere(const Persoana &persoana, Eveniment
     bileteVandute.push_back(b);
     return b;
 }
-
+Bilet* ManagerEvenimente::vindeBiletVip(const Persoana& persoana, Eveniment& ev, int rand, int coloana, bool arePopcorn, bool areBautura) {
+    Sala& sala = ev.getSala();
+    Loc& loc = sala.getLoc(rand, coloana);
+    if (loc.esteOcupat()) {
+        std::cout<<"Locul ("<<rand<<", "<<coloana<<") este deja ocupat. \n";
+        return nullptr;
+    }
+    if (!sala.esteLocVIP(rand, coloana)) {
+        std::cout<<"Locul ("<<rand<<", "<<coloana<<") nu este VIP. \n";
+        return nullptr;
+    }
+    loc.ocupa();
+    Bilet* b = new BiletVip(persoana, loc, ev.getPretBaza(), ev.getTip(), arePopcorn, areBautura);
+    bileteVandute.push_back(b);
+    return b;
+}
