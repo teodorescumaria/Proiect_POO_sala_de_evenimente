@@ -12,7 +12,9 @@ public:
   EvenimentConcert();
   EvenimentConcert(const std::string& nume, const std::string& data, double pretBaza, const Sala& sala, const std::string& artist, const std::string& genMuzical);
   EvenimentConcert& operator=(const EvenimentConcert& other);
-  
+  ~EvenimentConcert() override = default;
+  const std::string& getArtist() const;
+  const std::string& getGenMuzical() const;
 };
 #endif
   
