@@ -1,10 +1,23 @@
 #include <iostream>
+#include <string>
+
 #include "Persoana.h"
-#include "Loc.h"
-#include "Bilet.h"
+#include "Sala.h"
+#include "EvenimentTeatru.h"
+#include "EvenimentConcert.h"
+#include "EvenimentFilm.h"
+#include "ManagerEvenimente.h"
 
 int main() {
-    Persoana p("Ana", 2005);
-    Loc l(1, 2, false, false);
+
+    std::cout<<"=== Sistem de vanzare bilete la evenimente === \n";
+
+    Sala salaTeatru("Teatru", 5, 10);
+    salaTeatru.initializareLocuriVIP(2);
+    Sala salaConcert("Concert", 5, 10);
+    salaConcert.initializareLocuriVIP(1);
+    Sala salaFilm("Film", 5, 10);
+    salaFilm.initializareLocuriVIP(3);
+
     return 0;
 }
