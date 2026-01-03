@@ -10,6 +10,7 @@ EvenimentFilm& EvenimentFilm::operator=(const EvenimentFilm &other) {
         regizor = other.regizor;
         rating = other.rating;
     }
+    return *this;
 }
 const std::string& EvenimentFilm::getRegizor() const {
     return regizor;
