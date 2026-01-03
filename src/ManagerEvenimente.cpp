@@ -99,3 +99,11 @@ void ManagerEvenimente::afiseazaBilete() const {
     }
 }
 
+double ManagerEvenimente::calculeazaIncasariTotale() const {
+    double total = 0.0;
+    for (Bilet* b : bileteVandute) {
+        total+= b->calculeazaPret();
+    }
+    return total;
+}
+
