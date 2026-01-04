@@ -9,7 +9,7 @@ class Persoana
     std::string nume;
     int anulNasterii;
   public:
-    Persoana(const std::string& nume = "", int anulNasterii = 2000);
+    explicit Persoana(const std::string& nume = "", int anulNasterii = 2000);
     const std::string& getNume() const;
     int getVarsta() const;
     bool esteCopil() const;
