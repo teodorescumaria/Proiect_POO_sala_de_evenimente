@@ -12,7 +12,7 @@ class Sala
     int locuriPeRand;
     std::vector<Loc> locuri;
   public:
-    Sala(const std::string& tip_sala = "", int randuri = 1, int locuriPeRand = 1);
+    explicit Sala(const std::string& tip_sala = "", int randuri = 1, int locuriPeRand = 1);
     const std::string& getTipSala() const;
     int getRanduri() const;
     int getLocuriPeRand() const;
