@@ -16,6 +16,5 @@ class Loc
     bool esteOcupat() const;
 
     void ocupa();
-    void elibereaza();
 };
 #endif
