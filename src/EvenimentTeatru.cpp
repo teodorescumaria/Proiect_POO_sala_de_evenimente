@@ -23,7 +23,7 @@ const std::string& EvenimentTeatru::getTrupa() const {
 }
 
 double EvenimentTeatru::calculeazaVenitMaximTeoretic() const {
-  return Eveniment::calculeazaVenitMaximTeoretic();
+  return Eveniment::calculeazaVenitMaximTeoretic() * 0.8;
 }
 std::string EvenimentTeatru::descriere() const {
   return "TEATRU | " + Eveniment::descriere() + " | regizor: " + regizor + ", trupa: " + trupa;
