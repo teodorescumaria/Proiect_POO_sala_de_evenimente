@@ -29,7 +29,10 @@ int main() {
     manager.adaugaEveniment(evFilm);
 
     std::cout<<"Numar total de evenimente create: "<<Eveniment::getNrEvenimente()<<"\n";
-    std::cout<<"Detalii evenimente initiale: \n"<<"Teatru: "<<evTeatru->descriere()<<"\n"<<"Concert: "<<evConcert->getArtist()<<" | gen: "<<evConcert->getGenMuzical() << "\n" << "Film: regizor " << evFilm->getRegizor() << " | rating: " << evFilm->getRating()<<"\n";
+    std::cout<<"Detalii evenimente initiale: \n";
+    std::cout<<"Teatru: "<<evTeatru->descriere()<<" | trupa: "<<evTeatru->getTrupa()<<"\n";
+    std::cout<<"Concert: "<<evConcert->getArtist()<<" | gen: "<<evConcert->getGenMuzical() << "\n";
+    std::cout<< "Film: regizor " << evFilm->getRegizor() << " | rating: " << evFilm->getRating()<<"\n";
 
 
     int optiune = -1;
