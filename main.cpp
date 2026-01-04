@@ -84,7 +84,7 @@ int main() {
             int coloana;
             std::cin>>coloana;
 
-            Bilet* b = nullptr;
+            const Bilet* b = nullptr;
 
             if (tipBilet == 1) {
                 b = manager.vindeBiletStandard(p, *eveniment, rand, coloana);
