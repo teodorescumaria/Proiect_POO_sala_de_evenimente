@@ -95,7 +95,8 @@ void ManagerEvenimente::afiseazaBilete() const {
     }
     std::cout<<"Lista bilete vandute: \n";
     for (std::size_t i = 0; i < bileteVandute.size(); ++i) {
-        std::cout<<i+1<<". "<<bileteVandute[i]->descriere()<<" | pret final: "<<bileteVandute[i]->calculeazaPret()<<"\n";
+        const Bilet* b = bileteVandute[i];
+        std::cout<<i+1<<". "<<b->descriere()<<" | cumparator: "<<b->getPersoana().getNume()<<" | tip eveniment: "<<b->getTipEveniment()<<" | pret baza: "<<b->getPretDeBaza()<<" | pret final: "<<b->calculeazaPret()<<"\n";
     }
 }
 
