@@ -29,8 +29,8 @@ int main() {
     manager.adaugaEveniment(evFilm);
 
     std::cout<<"Numar total de evenimente create: "<<Eveniment::getNrEvenimente()<<"\n";
-    std::cout<<"Detalii evenimente initiale: \n"<<"Teatru: "<<evTeatru()<<"\n"<<"Concert: "<<evConcert->getArtist()<<" | gen: "<<evConcert->getGenMuzical()<<"\n"<<Film: regizor "<<evFilm->getRegizor()<<" | rating: " << evFilm->getRating()<<"\n";
-    
+    std::cout<<"Detalii evenimente initiale: \n"<<"Teatru: "<<evTeatru->descriere()<<"\n"<<"Concert: "<<evConcert->getArtist()<<" | gen: "<<evConcert->getGenMuzical() << "\n" << "Film: regizor " << evFilm->getRegizor() << " | rating: " << evFilm->getRating()<<"\n";
+
 
     int optiune = -1;
 
@@ -110,7 +110,7 @@ int main() {
             }
         } else if (optiune == 4) {
             std::cout<<"Incasari totale: "<<manager.calculeazaIncasariTotale()<<"lei \n";
-        } else if (optiunea == 5) {
+        } else if (optiune == 5) {
             std::cout<<"Introdu numele evenimentului: ";
             std::string numeEv;
             std::cin >> numeEv;
@@ -120,10 +120,12 @@ int main() {
             } else {
                 ev->getSala().afisareLocuri();
             }
-        else {
-            std::cout<<"Optiune invalid\n";
         }
-    }
+        else {
+                std::cout<<"Optiune invalida\n";
+            }
 
+        }
+    
     return 0;
 }
