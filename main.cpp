@@ -28,6 +28,10 @@ int main() {
     manager.adaugaEveniment(evConcert);
     manager.adaugaEveniment(evFilm);
 
+    std::cout<<"Numar total de evenimente create: "<<Eveniment::getNrEvenimente()<<"\n";
+    std::cout<<"Detalii evenimente initiale: \n"<<"Teatru: "<<evTeatru()<<"\n"<<"Concert: "<<evConcert->getArtist()<<" | gen: "<<evConcert->getGenMuzical()<<"\n"<<Film: regizor "<<evFilm->getRegizor()<<" | rating: " << evFilm->getRating()<<"\n";
+    
+
     int optiune = -1;
 
     while (true) {
@@ -36,6 +40,7 @@ int main() {
         std::cout<<"2. Afiseaza bilete vandute\n";
         std::cout<<"3. Vinde bilet\n";
         std::cout<<"4. Afiseaza incasari totale\n";
+        std::cout<<"5. Afiseaza locurile pentru un eveniment\n";
         std::cout<<"0. Iesire\n";
         std::cout<<"Alegeti optiunea: ";
         std::cin>>optiune;
@@ -105,7 +110,17 @@ int main() {
             }
         } else if (optiune == 4) {
             std::cout<<"Incasari totale: "<<manager.calculeazaIncasariTotale()<<"lei \n";
-        } else {
+        } else if (optiunea == 5) {
+            std::cout<<"Introdu numele evenimentului: ";
+            std::string numeEv;
+            std::cin >> numeEv;
+            Eveniment* ev = manager.gasesteEvenimentDupaNume(numeEv);
+            if(!ev) {
+                std::cout<<"Evenimentul nu a fost gasit. \n";
+            } else {
+                ev->getSala().afisareLocuri();
+            }
+        else {
             std::cout<<"Optiune invalid\n";
         }
     }
