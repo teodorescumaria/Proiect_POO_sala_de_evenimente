@@ -18,7 +18,4 @@ bool Loc::esteOcupat() const {
 void Loc::ocupa() {
   ocupat = true;
 }
-void Loc::elibereaza()
-{
-  ocupat = false;
-}
+
