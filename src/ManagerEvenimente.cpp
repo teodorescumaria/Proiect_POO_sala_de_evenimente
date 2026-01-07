@@ -20,14 +20,14 @@ void ManagerEvenimente::adaugaEveniment(Eveniment* ev) {
         evenimente.push_back(ev);
     }
 }
-void ManagerEvenimente::afiseazaEvenimente() const {
+void ManagerEvenimente::afiseazaEvenimente(std::ostream& out) const {
     if (evenimente.empty()) {
-        std::cout<<"Nu exista evenimente inregistrate. \n";
+        out<<"Nu exista evenimente inregistrate. \n";
         return;
     }
-    std::cout<<"Lista de evenimente: \n";
+    out<<"Lista de evenimente: \n";
     for (std::size_t i = 0; i < evenimente.size(); ++i) {
-        std::cout<<i+1<<". "<<evenimente[i]->descriere()<<"\n";
+        out<<i+1<<". "<<evenimente[i]->descriere()<<"\n";
     }
 }
 
@@ -40,11 +40,16 @@ Eveniment *ManagerEvenimente::gasesteEvenimentDupaNume(const std::string &nume) 
     return nullptr;
 }
 
-Bilet *ManagerEvenimente::vindeBiletStandard(const Persoana &persoana, Eveniment &ev, int rand, int coloana) {
+Bilet *ManagerEvenimente::vindeBiletStandard(const Persoana &persoana, Eveniment &ev, int rand, int coloana, std::ostream& out) {
     Sala& sala = ev.getSala();
     Loc& loc = sala.getLoc(rand, coloana);
     if (loc.esteOcupat()) {
-        std::cout<<"Locul ("<<rand<<", "<<coloana<<") este deja ocupat. \n";
+        out<<"Locul ("<<rand<<", "<<coloana<<") este deja ocupat. \n";
+        return nullptr;
+    }
+    if (sala.esteLocVIP(rand, coloana)) {
+        out<<"Locul ("<<rand<<", "<<coloana<<") este VIP\n";
+        out<<"Pentru acest loc trebuie sa achizitionati loc VIP.\n";
         return nullptr;
     }
     loc.ocupa();
@@ -53,16 +58,16 @@ Bilet *ManagerEvenimente::vindeBiletStandard(const Persoana &persoana, Eveniment
     return b;
 }
 
-Bilet *ManagerEvenimente::vindeBiletReducere(const Persoana &persoana, Eveniment &ev, int rand, int coloana) {
+Bilet *ManagerEvenimente::vindeBiletReducere(const Persoana &persoana, Eveniment &ev, int rand, int coloana, std::ostream& out) {
     Sala& sala = ev.getSala();
     Loc& loc = sala.getLoc(rand, coloana);
     if (loc.esteOcupat()) {
-        std::cout<<"Locul ("<<rand<<", "<<coloana<<") este deja ocupat. \n";
+        out<<"Locul ("<<rand<<", "<<coloana<<") este deja ocupat. \n";
         return nullptr;
     }
 
     if (!persoana.esteCopil() && !persoana.esteSenior()) {
-        std::cout<<"Persoana "<<persoana.getNume()<<" nu este eligibila pentru bilet redus. \n";
+        out<<"Persoana "<<persoana.getNume()<<" nu este eligibila pentru bilet redus. \n";
         return nullptr;
     }
 
@@ -71,15 +76,15 @@ Bilet *ManagerEvenimente::vindeBiletReducere(const Persoana &persoana, Eveniment
     bileteVandute.push_back(b);
     return b;
 }
-Bilet* ManagerEvenimente::vindeBiletVip(const Persoana& persoana, Eveniment& ev, int rand, int coloana, bool arePopcorn, bool areBautura) {
+Bilet* ManagerEvenimente::vindeBiletVip(const Persoana& persoana, Eveniment& ev, int rand, int coloana, bool arePopcorn, bool areBautura, std::ostream& out) {
     Sala& sala = ev.getSala();
     Loc& loc = sala.getLoc(rand, coloana);
     if (loc.esteOcupat()) {
-        std::cout<<"Locul ("<<rand<<", "<<coloana<<") este deja ocupat. \n";
+        out<<"Locul ("<<rand<<", "<<coloana<<") este deja ocupat. \n";
         return nullptr;
     }
     if (!sala.esteLocVIP(rand, coloana)) {
-        std::cout<<"Locul ("<<rand<<", "<<coloana<<") nu este VIP. \n";
+        out<<"Locul ("<<rand<<", "<<coloana<<") nu este VIP. \n";
         return nullptr;
     }
     loc.ocupa();
@@ -88,15 +93,15 @@ Bilet* ManagerEvenimente::vindeBiletVip(const Persoana& persoana, Eveniment& ev,
     return b;
 }
 
-void ManagerEvenimente::afiseazaBilete() const {
+void ManagerEvenimente::afiseazaBilete(std::ostream& out) const {
     if (bileteVandute.empty()) {
-        std::cout<<"Nu exista bilete vandute. \n";
+        out<<"Nu exista bilete vandute. \n";
         return;
     }
-    std::cout<<"Lista bilete vandute: \n";
+    out<<"Lista bilete vandute: \n";
     for (std::size_t i = 0; i < bileteVandute.size(); ++i) {
         const Bilet* b = bileteVandute[i];
-        std::cout<<i+1<<". "<<b->descriere()<<" | cumparator: "<<b->getPersoana().getNume()<<" | tip eveniment: "<<b->getTipEveniment()<<" | pret baza: "<<b->getPretDeBaza()<<" | pret final: "<<b->calculeazaPret()<<"\n";
+        out<<i+1<<". "<<b->descriere()<<" | cumparator: "<<b->getPersoana().getNume()<<" | tip eveniment: "<<b->getTipEveniment()<<" | pret baza: "<<b->getPretDeBaza()<<" | pret final: "<<b->calculeazaPret()<<"\n";
     }
 }
 
@@ -107,4 +112,3 @@ double ManagerEvenimente::calculeazaIncasariTotale() const {
     }
     return total;
 }
-
