@@ -40,8 +40,8 @@ Loc& Sala::getLoc(int rand, int coloana) {
     return locuri[index];
 }
 
-void Sala::afisareLocuri() const {
-    std::cout << "SALA (" <<tip_sala<<") are "<<randuri<<" randuri si "<<locuriPeRand<<" locuri pe rand. \n";
+void Sala::afisareLocuri(std::ostream& out) const {
+    out << "SALA (" <<tip_sala<<") are "<<randuri<<" randuri si "<<locuriPeRand<<" locuri pe rand. \n";
     for(int r=1; r<=randuri; ++r) {
         for(int c = 1; c<=locuriPeRand; ++c) {
             int index = (r-1)*locuriPeRand+(c-1);
@@ -53,8 +53,8 @@ void Sala::afisareLocuri() const {
             if(loc.esteOcupat()) {
                 simbol = 'X';
             }
-            std::cout<<simbol<<' ';
+            out<<simbol<<' ';
         }
-        std::cout<<"\n";
+        out<<"\n";
     }
 }
