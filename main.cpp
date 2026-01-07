@@ -14,8 +14,8 @@
 
 int main() {
 
-    std::ifstream fin("../input.txt");
-    std::ofstream fout("../output.txt");
+    std::ifstream fin("input.txt");
+    std::ofstream fout("output.txt");
 
     if (!fin.is_open()) {
         std::cout<<"Nu s-a putut deschide fisierul\n";
