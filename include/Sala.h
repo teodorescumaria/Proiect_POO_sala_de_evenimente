@@ -1,3 +1,7 @@
+//
+// Created by Mackbook Pro 14 on 01.01.2026.
+//
+
 #ifndef SALA_H
 #define SALA_H
 #include <string>
@@ -6,24 +10,24 @@
 
 class Sala
 {
-  private:
+private:
     std::string tip_sala;
     int randuri;
     int locuriPeRand;
     std::vector<Loc> locuri;
-  public:
+public:
     explicit Sala(const std::string& tip_sala = "", int randuri = 1, int locuriPeRand = 1);
     const std::string& getTipSala() const;
     int getRanduri() const;
     int getLocuriPeRand() const;
 
-//marcam un rand ca VIP
+    //marcam un rand ca VIP
     void initializareLocuriVIP(int randVIP);
 
     bool esteLocVIP(int rand, int coloana);
     Loc& getLoc(int rand, int coloana);
-    void afisareLocuri() const;
+    void afisareLocuri(std::ostream& out) const;
 };
-    
+
 
 #endif
