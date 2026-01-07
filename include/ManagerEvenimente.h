@@ -1,5 +1,9 @@
-#ifndef MANAGER_EVENIMENTE_H
-#define MANAGER_EVENIMENTE_H
+//
+// Created by Mackbook Pro 14 on 03.01.2026.
+//
+
+#ifndef PROIECT_POO_MANAGEREVENIMENTE_H
+#define PROIECT_POO_MANAGEREVENIMENTE_H
 
 #include <vector>
 #include <string>
@@ -21,14 +25,17 @@ public:
     ~ManagerEvenimente();
 
     void adaugaEveniment(Eveniment* ev);
-    void afiseazaEvenimente() const;
+
+    void afiseazaEvenimente(std::ostream& out) const;
+
     Eveniment* gasesteEvenimentDupaNume(const std::string& nume) const;
 
-    Bilet* vindeBiletStandard(const Persoana& persoana, Eveniment& ev, int rand, int coloana);
-    Bilet* vindeBiletReducere(const Persoana& persoana, Eveniment& ev, int rand, int coloana);
-    Bilet* vindeBiletVip(const Persoana& persoana, Eveniment& ev, int rand, int coloana, bool arePopcorn, bool areBautura);
+    Bilet* vindeBiletStandard(const Persoana& persoana, Eveniment& ev, int rand, int coloana, std::ostream& out);
+    Bilet* vindeBiletReducere(const Persoana& persoana, Eveniment& ev, int rand, int coloana, std::ostream& out);
+    Bilet* vindeBiletVip(const Persoana& persoana, Eveniment& ev, int rand, int coloana, bool arePopcorn, bool areBautura, std::ostream& out);
 
-    void afiseazaBilete() const;
+    void afiseazaBilete(std::ostream& out) const;
+
     double calculeazaIncasariTotale() const;
 
 };
