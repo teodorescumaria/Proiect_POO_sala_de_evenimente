@@ -1,1 +1,219 @@
+=== Sistem de vanzare bilete la evenimente === 
 
+Numar total de evenimente create: 3
+
+Detalii evenimente initiale: 
+TEATRU | Eveniment: Iona (Teatru) la data 10-02-2026 | regizor: Bogdan Olteanu, trupa: Trupa IELE | trupa: Trupa IELE
+CONCERT | Eveniment: Vama (Concert) la data 14-01-2026 | artist: Vama | gen: Pop-Rock | artist: Vama | gen: Pop-Rock
+FILM | Eveniment: Avatar (Film) la data 10-01-2026 | regizor: James Cameron, rating: AP-12 | regizor James Cameron | rating: AP-12
+
+ === MENIU === 
+1. Afiseaza evenimente
+2. Afiseaza bilete vandute
+3. Vinde bilet
+4. Afiseaza incasari totale
+5. Afiseaza locurile pentru un eveniment
+0. Iesire
+Alegeti optiunea: 
+Lista de evenimente: 
+1. TEATRU | Eveniment: Iona (Teatru) la data 10-02-2026 | regizor: Bogdan Olteanu, trupa: Trupa IELE
+2. CONCERT | Eveniment: Vama (Concert) la data 14-01-2026 | artist: Vama | gen: Pop-Rock
+3. FILM | Eveniment: Avatar (Film) la data 10-01-2026 | regizor: James Cameron, rating: AP-12
+
+ === MENIU === 
+1. Afiseaza evenimente
+2. Afiseaza bilete vandute
+3. Vinde bilet
+4. Afiseaza incasari totale
+5. Afiseaza locurile pentru un eveniment
+0. Iesire
+Alegeti optiunea: 
+
+ --- Vanzare bilet ---
+Introdu numele evenimentului (Iona / Vama / Avatar): 
+
+Harta locurilor
+SALA (Teatru) are 5 randuri si 10 locuri pe rand. 
+- - - - - - - - - - 
+V V V V V V V V V V 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+
+(- loc liber, V loc Vip, X loc ocupat)
+
+Nume persoana: 
+Anul nasterii persoanei: 
+Tip bilet (1 = Standard, 2 = Redus, 3 = VIP): 
+Rand: 
+Coloana: 
+Bilet vandut: Bilet STANDARD | Bilet pentru Maria Teodorescu la Teatru | Pret: 50.000000 | pret final: 50
+
+ === MENIU === 
+1. Afiseaza evenimente
+2. Afiseaza bilete vandute
+3. Vinde bilet
+4. Afiseaza incasari totale
+5. Afiseaza locurile pentru un eveniment
+0. Iesire
+Alegeti optiunea: 
+
+ --- Vanzare bilet ---
+Introdu numele evenimentului (Iona / Vama / Avatar): 
+
+Harta locurilor
+SALA (Teatru) are 5 randuri si 10 locuri pe rand. 
+X - - - - - - - - - 
+V V V V V V V V V V 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+
+(- loc liber, V loc Vip, X loc ocupat)
+
+Nume persoana: 
+Anul nasterii persoanei: 
+Tip bilet (1 = Standard, 2 = Redus, 3 = VIP): 
+Rand: 
+Coloana: 
+Bilet vandut: Bilet REDUS | Bilet pentru Ana Maria  la Teatru | Pret redus25.000000 | pret final: 25
+
+ === MENIU === 
+1. Afiseaza evenimente
+2. Afiseaza bilete vandute
+3. Vinde bilet
+4. Afiseaza incasari totale
+5. Afiseaza locurile pentru un eveniment
+0. Iesire
+Alegeti optiunea: 
+
+ --- Vanzare bilet ---
+Introdu numele evenimentului (Iona / Vama / Avatar): 
+
+Harta locurilor
+SALA (Teatru) are 5 randuri si 10 locuri pe rand. 
+X X - - - - - - - - 
+V V V V V V V V V V 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+
+(- loc liber, V loc Vip, X loc ocupat)
+
+Nume persoana: 
+Anul nasterii persoanei: 
+Tip bilet (1 = Standard, 2 = Redus, 3 = VIP): 
+Rand: 
+Coloana: 
+Persoana Miruna Miron nu este eligibila pentru bilet redus. 
+
+ === MENIU === 
+1. Afiseaza evenimente
+2. Afiseaza bilete vandute
+3. Vinde bilet
+4. Afiseaza incasari totale
+5. Afiseaza locurile pentru un eveniment
+0. Iesire
+Alegeti optiunea: 
+
+ --- Vanzare bilet ---
+Introdu numele evenimentului (Iona / Vama / Avatar): 
+
+Harta locurilor
+SALA (Teatru) are 5 randuri si 10 locuri pe rand. 
+X X - - - - - - - - 
+V V V V V V V V V V 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+
+(- loc liber, V loc Vip, X loc ocupat)
+
+Nume persoana: 
+Anul nasterii persoanei: 
+Tip bilet (1 = Standard, 2 = Redus, 3 = VIP): 
+Rand: 
+Coloana: 
+Popcorn inclus? (1 = da, 0 = nu): 
+Bautura inclusa? (1 = da, 0 = nu): 
+Locul (1, 4) nu este VIP. 
+
+ === MENIU === 
+1. Afiseaza evenimente
+2. Afiseaza bilete vandute
+3. Vinde bilet
+4. Afiseaza incasari totale
+5. Afiseaza locurile pentru un eveniment
+0. Iesire
+Alegeti optiunea: 
+
+ --- Vanzare bilet ---
+Introdu numele evenimentului (Iona / Vama / Avatar): 
+
+Harta locurilor
+SALA (Teatru) are 5 randuri si 10 locuri pe rand. 
+X X - - - - - - - - 
+V V V V V V V V V V 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+
+(- loc liber, V loc Vip, X loc ocupat)
+
+Nume persoana: 
+Anul nasterii persoanei: 
+Tip bilet (1 = Standard, 2 = Redus, 3 = VIP): 
+Rand: 
+Coloana: 
+Popcorn inclus? (1 = da, 0 = nu): 
+Bautura inclusa? (1 = da, 0 = nu): 
+Bilet vandut: Bilet VIP | Bilet pentru Dinu Daria la Teatru (extrauri: popcorn) | Pret VIP: 65.000000 | pret final: 65
+
+ === MENIU === 
+1. Afiseaza evenimente
+2. Afiseaza bilete vandute
+3. Vinde bilet
+4. Afiseaza incasari totale
+5. Afiseaza locurile pentru un eveniment
+0. Iesire
+Alegeti optiunea: 
+Lista bilete vandute: 
+1. Bilet STANDARD | Bilet pentru Maria Teodorescu la Teatru | Pret: 50.000000 | cumparator: Maria Teodorescu | tip eveniment: Teatru | pret baza: 50 | pret final: 50
+2. Bilet REDUS | Bilet pentru Ana Maria  la Teatru | Pret redus25.000000 | cumparator: Ana Maria  | tip eveniment: Teatru | pret baza: 50 | pret final: 25
+3. Bilet VIP | Bilet pentru Dinu Daria la Teatru (extrauri: popcorn) | Pret VIP: 65.000000 | cumparator: Dinu Daria | tip eveniment: Teatru | pret baza: 50 | pret final: 65
+
+ === MENIU === 
+1. Afiseaza evenimente
+2. Afiseaza bilete vandute
+3. Vinde bilet
+4. Afiseaza incasari totale
+5. Afiseaza locurile pentru un eveniment
+0. Iesire
+Alegeti optiunea: 
+Incasari totale: 140lei 
+
+ === MENIU === 
+1. Afiseaza evenimente
+2. Afiseaza bilete vandute
+3. Vinde bilet
+4. Afiseaza incasari totale
+5. Afiseaza locurile pentru un eveniment
+0. Iesire
+Alegeti optiunea: 
+Introdu numele evenimentului: 
+SALA (Teatru) are 5 randuri si 10 locuri pe rand. 
+X X - - - - - - - - 
+V V V V X V V V V V 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+
+ === MENIU === 
+1. Afiseaza evenimente
+2. Afiseaza bilete vandute
+3. Vinde bilet
+4. Afiseaza incasari totale
+5. Afiseaza locurile pentru un eveniment
+0. Iesire
+Alegeti optiunea: 
+LA REVEDERE! 
