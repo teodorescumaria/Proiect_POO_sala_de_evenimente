@@ -1,9 +1,5 @@
-//
-// Created by Mackbook Pro 14 on 03.01.2026.
-//
-
-#ifndef PROIECT_POO_MANAGEREVENIMENTE_H
-#define PROIECT_POO_MANAGEREVENIMENTE_H
+#ifndef MANAGEREVENIMENTE_H
+#define MANAGEREVENIMENTE_H
 
 #include <vector>
 #include <string>
