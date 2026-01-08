@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
-//
 #include <fstream>
-//
 
+#include <stdexcept>
 
 #include "Persoana.h"
 #include "Sala.h"
@@ -119,22 +118,28 @@ int main() {
 
             const Bilet* b = nullptr;
 
-            if (tipBilet == 1) {
-                b = manager.vindeBiletStandard(p, *eveniment, rand, coloana, fout);
-            } else if (tipBilet == 2) {
-                b = manager.vindeBiletReducere(p, *eveniment, rand, coloana, fout);
-            } else if (tipBilet == 3) {
-                int pop, baut;
-                fout<<"Popcorn inclus? (1 = da, 0 = nu): \n";
-                fin>>pop;
-                fout<<"Bautura inclusa? (1 = da, 0 = nu): \n";
-                fin>>baut;
-                b = manager.vindeBiletVip(p, *eveniment, rand, coloana, pop, baut, fout);
-            } else {
-                fout<<"Tip bilet invalid\n";
+            try {
+
+                if (tipBilet == 1) {
+                    b = manager.vindeBiletStandard(p, *eveniment, rand, coloana, fout);
+                } else if (tipBilet == 2) {
+                    b = manager.vindeBiletReducere(p, *eveniment, rand, coloana, fout);
+                } else if (tipBilet == 3) {
+                    int pop, baut;
+                    fout<<"Popcorn inclus? (1 = da, 0 = nu): \n";
+                    fin>>pop;
+                    fout<<"Bautura inclusa? (1 = da, 0 = nu): \n";
+                    fin>>baut;
+                    b = manager.vindeBiletVip(p, *eveniment, rand, coloana, pop, baut, fout);
+                } else {
+                    fout<<"Tip bilet invalid\n";
+                }
+                if (b!=nullptr) {
+                    fout<<"Bilet vandut: "<<b->descriere()<<" | pret final: "<<b->calculeazaPret()<<"\n";
+                }
             }
-            if (b!=nullptr) {
-                fout<<"Bilet vandut: "<<b->descriere()<<" | pret final: "<<b->calculeazaPret()<<"\n";
+            catch (const std::exception& e) {
+                fout<<"Eroare la vanzaare bilet: "<< e.what()<<"\n";
             }
         } else if (optiune == 4) {
             fout<<"Incasari totale: "<<manager.calculeazaIncasariTotale()<<"lei \n";

@@ -1,4 +1,6 @@
 #include "Sala.h"
+#include "Exceptii.h"
+#include <stdexcept>
 #include <iostream>
 
 Sala::Sala(const std::string& tip_sala, int randuri, int locuriPeRand) : tip_sala(tip_sala), randuri(randuri), locuriPeRand(locuriPeRand) {
@@ -36,6 +38,9 @@ bool Sala::esteLocVIP(int rand, int coloana) {
 }
 
 Loc& Sala::getLoc(int rand, int coloana) {
+    if (rand < 1 || rand > randuri || coloana < 1 || coloana > locuriPeRand) {
+        throw EroareLocInvalid("EroareLocInvalid");
+    }
     int index = (rand-1) * locuriPeRand + (coloana-1);
     return locuri[index];
 }
