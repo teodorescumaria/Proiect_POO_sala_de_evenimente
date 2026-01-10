@@ -8,7 +8,7 @@ class Loc
     bool esteVip;
     bool ocupat;
   public:
-    Loc(int rand = 1, int coloana = 1, bool esteVip = false, bool ocupat = false);
+    explicit Loc(int rand = 1, int coloana = 1, bool esteVip = false, bool ocupat = false);
 //
     Loc(const Loc& other) = default;
     Loc& operator=(const Loc& other) = default;
