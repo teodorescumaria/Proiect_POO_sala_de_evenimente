@@ -35,13 +35,21 @@ Vanzare bilete:
 - exceptii personalizate pentru validari
 - STL
 
+<<<<<<< HEAD
 ### Structura proiect 
+=======
+### Structura proiect
+>>>>>>> a8ba8e7 (Am modificat ReadMe ul din Clion)
 - include/ – headere(.h)
 - src/ – implementări (.cpp)
 - CMakeLists.txt – build
 - README.md – descriere proiect
 
+<<<<<<< HEAD
 ### Exemplu de rulare 
+=======
+### Exemplu de rulare
+>>>>>>> a8ba8e7 (Am modificat ReadMe ul din Clion)
 Programul afiseaza un meniu interactiv similar cu:
 
 === MENIU ===
