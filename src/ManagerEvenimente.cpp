@@ -50,8 +50,8 @@ Eveniment *ManagerEvenimente::gasesteEvenimentDupaNume(const std::string &nume) 
 
 Bilet *ManagerEvenimente::vindeBiletStandard(const Persoana &persoana, Eveniment &ev, int rand, int coloana, std::ostream& out) {
     Sala& sala = ev.getSala();
-    Loc* loc = sala.getLoc(rand, coloana);
-    if (loc->esteOcupat()) {
+    Loc loc = sala.getLoc(rand, coloana);
+    if (loc.esteOcupat()) {
         out<<"Locul ("<<rand<<", "<<coloana<<") este deja ocupat. \n";
         return nullptr;
     }
@@ -60,16 +60,18 @@ Bilet *ManagerEvenimente::vindeBiletStandard(const Persoana &persoana, Eveniment
         out<<"Pentru acest loc trebuie sa achizitionati loc VIP.\n";
         return nullptr;
     }
-    loc->ocupa();
-    Bilet* b = new BiletStandard(persoana, *loc, ev.getPretBaza(), ev.getTip());
+    sala.ocupaLoc(rand, coloana);
+    loc = sala.getLoc(rand, coloana);
+
+    Bilet* b = new BiletStandard(persoana, loc, ev.getPretBaza(), ev.getTip());
     bileteVandute.push_back(b);
     return b;
 }
 
 Bilet *ManagerEvenimente::vindeBiletReducere(const Persoana &persoana, Eveniment &ev, int rand, int coloana, std::ostream& out) {
     Sala& sala = ev.getSala();
-    Loc* loc = sala.getLoc(rand, coloana);
-    if (loc->esteOcupat()) {
+    Loc loc = sala.getLoc(rand, coloana);
+    if (loc.esteOcupat()) {
         out<<"Locul ("<<rand<<", "<<coloana<<") este deja ocupat. \n";
         return nullptr;
     }
@@ -79,15 +81,17 @@ Bilet *ManagerEvenimente::vindeBiletReducere(const Persoana &persoana, Eveniment
         return nullptr;
     }
 
-    loc->ocupa();
-    Bilet* b = new BiletReducere(persoana, *loc, ev.getPretBaza(), ev.getTip());
+    sala.ocupaLoc(rand, coloana);
+    loc = sala.getLoc(rand, coloana);
+
+    Bilet* b = new BiletReducere(persoana, loc, ev.getPretBaza(), ev.getTip());
     bileteVandute.push_back(b);
     return b;
 }
 Bilet* ManagerEvenimente::vindeBiletVip(const Persoana& persoana, Eveniment& ev, int rand, int coloana, bool arePopcorn, bool areBautura, std::ostream& out) {
     Sala& sala = ev.getSala();
-    Loc* loc = sala.getLoc(rand, coloana);
-    if (loc->esteOcupat()) {
+    Loc loc = sala.getLoc(rand, coloana);
+    if (loc.esteOcupat()) {
         out<<"Locul ("<<rand<<", "<<coloana<<") este deja ocupat. \n";
         return nullptr;
     }
@@ -95,8 +99,10 @@ Bilet* ManagerEvenimente::vindeBiletVip(const Persoana& persoana, Eveniment& ev,
         out<<"Locul ("<<rand<<", "<<coloana<<") nu este VIP. \n";
         return nullptr;
     }
-    loc->ocupa();
-    Bilet* b = new BiletVip(persoana, *loc, ev.getPretBaza(), ev.getTip(), arePopcorn, areBautura);
+    sala.ocupaLoc(rand, coloana);
+    loc = sala.getLoc(rand, coloana);
+
+    Bilet* b = new BiletVip(persoana, loc, ev.getPretBaza(), ev.getTip(), arePopcorn, areBautura);
     bileteVandute.push_back(b);
     return b;
 }
