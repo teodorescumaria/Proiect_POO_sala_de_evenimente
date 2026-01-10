@@ -2,7 +2,7 @@
 #include <string>
 #include <limits>
 
-#include <exception>
+#include <stdexcept>
 
 #include "Persoana.h"
 #include "Sala.h"
@@ -66,65 +66,63 @@ int main() {
         } else if (optiune == 2) {
             manager.afiseazaBilete(std::cout);
         } else if (optiune == 3) {
-            std::cout<<"\n --- Vanzare bilet ---\n";
-            std::cout<<"Introdu numele evenimentului (Iona / Vama / Avatar): \n";
-            std::string numeEveniment;
-            std::cin>>numeEveniment;
+            try {
+                std::cout<<"\n --- Vanzare bilet ---\n";
+                std::cout<<"Introdu numele evenimentului (Iona / Vama / Avatar): \n";
+                std::string numeEveniment;
+                if (!(std::cin >> numeEveniment)) {
+                    throw std::runtime_error("Eroare la citire");
+                }
 
-            Eveniment* eveniment = manager.gasesteEvenimentDupaNume(numeEveniment);
-            if (!eveniment) {
-                std::cout<<"Evenimentul nu a fost gasit. \n";
-                continue;
-            }
-        try {
-            std::cout<<"\nHarta locurilor\n";
-            eveniment->getSala().afisareLocuri(std::cout);
-            std::cout<<"\n(- loc liber, V loc Vip, X loc ocupat)\n";
-            std::cout<<"\n";
+                Eveniment* eveniment = manager.gasesteEvenimentDupaNume(numeEveniment);
+                if (!eveniment) {
+                    throw std::runtime_error("Evenimentul nu a fost gasit");
+                }
+                std::cout<<"\nHarta locurilor\n";
+                eveniment->getSala().afisareLocuri(std::cout);
+                std::cout<<"\n(- loc liber, V loc Vip, X loc ocupat)\n";
+                std::cout<<"\n";
 
-            std::cout<<"Nume persoana: \n";
-            std::string numePersoana;
-            std::cin>>std::ws; //ca sa sara peste new line
-            std::getline(std::cin, numePersoana);
-            int anulNasterii = 0;
-            int tipBilet = 0;
-            int rand = 0;
-            int coloana = 0;
+                std::cout<<"Nume persoana: \n";
+                std::string numePersoana;
+                std::cin>>std::ws; //ca sa sara peste new line
+                std::getline(std::cin, numePersoana);
 
-            std::cout<<"Anul nasterii persoanei: \n";
-            if (!(std::cin>>anulNasterii)) {
-                std::cout<<"Eroare la citire \n";
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                continue;
-            }
+                int anulNasterii = 0;
+                int tipBilet = 0;
+                int rand = 0;
+                int coloana = 0;
 
-            Persoana p(numePersoana, anulNasterii);
+                std::cout<<"Anul nasterii persoanei: \n";
+                if (!(std::cin>>anulNasterii)) {
+                    std::cin.clear();
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                    throw std::runtime_error("Anul nasterii invalid\n");
+                }
 
-            std::cout<<"Tip bilet (1 = Standard, 2 = Redus, 3 = VIP): \n";
-            if (!(std::cin>>tipBilet)) {
-                std::cout<<"Eroare la citire \n";
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                continue;
-            }
+                Persoana p(numePersoana, anulNasterii);
 
-            std::cout<<"Rand: \n";
-            if (!(std::cin>>rand)) {
-                std::cout<<"Eroare la citire \n";
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                continue;
-            }
-            std::cout<<"Coloana: \n";
-            if (!(std::cin>>coloana)) {
-                std::cout<<"Eroare la citire \n";
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                continue;
-            }
+                std::cout<<"Tip bilet (1 = Standard, 2 = Redus, 3 = VIP): \n";
+                if (!(std::cin>>tipBilet)) {
+                    std::cin.clear();
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                    throw std::runtime_error("Tip bilet invalid\n");
+                }
 
-            const Bilet* b = nullptr;
+                std::cout<<"Rand: \n";
+                if (!(std::cin>>rand)) {
+                    std::cin.clear();
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                    throw std::runtime_error("Rand invalid\n");
+                }
+                std::cout<<"Coloana: \n";
+                if (!(std::cin>>coloana)) {
+                    std::cin.clear();
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                    throw std::runtime_error("Coloana invalida. \n");
+                }
+
+                const Bilet* b = nullptr;
 
                 if (tipBilet == 1) {
                     b = manager.vindeBiletStandard(p, *eveniment, rand, coloana, std::cout);
@@ -134,21 +132,19 @@ int main() {
                     int pop, baut;
                     std::cout<<"Popcorn inclus? (1 = da, 0 = nu): \n";
                     if (!(std::cin>>pop)) {
-                        std::cout<<"Eroare la citire \n";
                         std::cin.clear();
                         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                        continue;
+                        throw std::runtime_error("Valoare invalida\n");
                     }
                     std::cout<<"Bautura inclusa? (1 = da, 0 = nu): \n";
                     if (!(std::cin>>baut)) {
-                        std::cout<<"Eroare la citire \n";
                         std::cin.clear();
                         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                        continue;
+                        throw std::runtime_error("Valoare invalida\n");
                     }
                     b = manager.vindeBiletVip(p, *eveniment, rand, coloana, pop, baut, std::cout);
                 } else {
-                    std::cout<<"Tip bilet invalid\n";
+                    throw std::runtime_error("Tip bilet invalid\n");
                 }
                 if (b!=nullptr) {
                     std::cout<<"Bilet vandut: "<<b->descriere()<<" | pret final: "<<b->calculeazaPret()<<"\n";
@@ -156,6 +152,7 @@ int main() {
             }
             catch (const std::exception& e) {
                 std::cout<<"Eroare la vanzaare bilet: "<< e.what()<<"\n";
+                continue;
             }
         } else if (optiune == 4) {
             std::cout<<"Incasari totale: "<<manager.calculeazaIncasariTotale()<<"lei \n";
