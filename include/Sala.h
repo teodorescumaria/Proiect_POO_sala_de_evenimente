@@ -29,7 +29,7 @@ public:
     void initializareLocuriVIP(int randVIP);
 
     bool esteLocVIP(int rand, int coloana) const;
-    Loc& getLoc(int rand, int coloana);
+    Loc* getLoc(int rand, int coloana);
     void afisareLocuri(std::ostream& out) const;
 };
 
