@@ -13,6 +13,8 @@
 
 int main() {
 
+    Persoana::setAnCurent(2026);
+
     std::cout<<"=== Sistem de vanzare bilete la evenimente === \n";
     std::cout<<"\n";
 
