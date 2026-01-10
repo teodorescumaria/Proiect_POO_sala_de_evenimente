@@ -11,7 +11,7 @@ ManagerEvenimente& ManagerEvenimente::getInstance() {
     return instance;
 }
 
-ManagerEvenimente::~ManagerEvenimente() {
+ManagerEvenimente::~ManagerEvenimente() noexcept {
     for (Eveniment* ev : evenimente) {
         delete ev;
     }
