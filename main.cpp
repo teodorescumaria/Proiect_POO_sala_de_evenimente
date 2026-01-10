@@ -85,23 +85,35 @@ int main() {
             std::string numePersoana;
             std::cin>>std::ws; //ca sa sara peste new line
             std::getline(std::cin, numePersoana);
+            int anulNasterii = 0;
+            int tipBilet = 0;
+            int rand = 0;
+            int coloana = 0;
 
             std::cout<<"Anul nasterii persoanei: \n";
-            int anulNasterii;
-            std::cin>>anulNasterii;
+            if (!(std::cin>>anulNasterii)) {
+                std::cout<<"Eroare la citire \n";
+                continue;
+            }
 
             Persoana p(numePersoana, anulNasterii);
 
             std::cout<<"Tip bilet (1 = Standard, 2 = Redus, 3 = VIP): \n";
-            int tipBilet;
-            std::cin>>tipBilet;
+            if (!(std::cin>>tipBilet)) {
+                std::cout<<"Eroare la citire \n";
+                continue;
+            }
 
             std::cout<<"Rand: \n";
-            int rand;
-            std::cin>>rand;
+            if (!(std::cin>>rand)) {
+                std::cout<<"Eroare la citire \n";
+                continue;
+            }
             std::cout<<"Coloana: \n";
-            int coloana;
-            std::cin>>coloana;
+            if (!(std::cin>>coloana)) {
+                std::cout<<"Eroare la citire \n";
+                continue;
+            }
 
             const Bilet* b = nullptr;
 
