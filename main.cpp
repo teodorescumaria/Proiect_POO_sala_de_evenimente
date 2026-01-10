@@ -75,7 +75,7 @@ int main() {
                 std::cout<<"Evenimentul nu a fost gasit. \n";
                 continue;
             }
-
+        try {
             std::cout<<"\nHarta locurilor\n";
             eveniment->getSala().afisareLocuri(std::cout);
             std::cout<<"\n(- loc liber, V loc Vip, X loc ocupat)\n";
@@ -104,8 +104,6 @@ int main() {
             std::cin>>coloana;
 
             const Bilet* b = nullptr;
-
-            try {
 
                 if (tipBilet == 1) {
                     b = manager.vindeBiletStandard(p, *eveniment, rand, coloana, std::cout);

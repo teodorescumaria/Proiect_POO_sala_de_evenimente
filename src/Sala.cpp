@@ -29,7 +29,7 @@ void Sala::initializareLocuriVIP(int randVIP) {
     }
 }
 
-bool Sala::esteLocVIP(int rand, int coloana) {
+bool Sala::esteLocVIP(int rand, int coloana) const {
     if(rand < 1 || rand > randuri || coloana < 1 || coloana > locuriPeRand) {
         return false;
     }
