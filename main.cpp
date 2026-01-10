@@ -52,11 +52,11 @@ int main() {
         std::cout<<"5. Afiseaza locurile pentru un eveniment\n";
         std::cout<<"0. Iesire\n";
         std::cout<<"Alegeti optiunea: \n";
-        std::cin>>optiune;
-
-        if (!std::cin){
-            std::cout<<"Eroare la citire\n";
-            break;
+        if (!(std::cin>>optiune)) {
+            std::cout<<"Eroare la citirea optiunii\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            continue;
         }
         if (optiune == 0) {
             std::cout<<"LA REVEDERE! \n";
@@ -148,6 +148,7 @@ int main() {
                 if (b!=nullptr) {
                     std::cout<<"Bilet vandut: "<<b->descriere()<<" | pret final: "<<b->calculeazaPret()<<"\n";
                 }
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             }
             catch (const std::exception& e) {
                 std::cout<<"Eroare la vanzaare bilet: "<< e.what()<<"\n";
