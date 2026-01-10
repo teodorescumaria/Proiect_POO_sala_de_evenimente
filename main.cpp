@@ -39,7 +39,7 @@ int main() {
     auto* evConcert = new EvenimentConcert("Vama", "14-01-2026", 80.0, salaConcert, "Vama", "Pop-Rock");
     auto* evFilm = new EvenimentFilm("Avatar", "10-01-2026", 40.0, salaFilm, "James Cameron", "AP-12");
 
-     ManagerEvenimente manager;
+    auto& manager = ManagerEvenimente::getInstance();
     manager.adaugaEveniment(evTeatru);
     manager.adaugaEveniment(evConcert);
     manager.adaugaEveniment(evFilm);

@@ -1,7 +1,15 @@
 #include "ManagerEvenimente.h"
+#include "BiletReducere.h"
+#include "BiletStandard.h"
+#include "BiletVip.h"
 #include <iostream>
 
 ManagerEvenimente::ManagerEvenimente() = default;
+
+ManagerEvenimente& ManagerEvenimente::getInstance() {
+    static ManagerEvenimente instance;
+    return instance;
+}
 
 ManagerEvenimente::~ManagerEvenimente() {
     for (Eveniment* ev : evenimente) {
