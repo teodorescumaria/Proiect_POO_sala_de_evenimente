@@ -12,6 +12,17 @@ Sala::Sala(const std::string& tip_sala, int randuri, int locuriPeRand) : tip_sal
     }
 }
 
+Sala::Sala(const Sala& other) : tip_sala(other.tip_sala), randuri(other.randuri), locuriPeRand(other.locuriPeRand), locuri(other.locuri) {}
+Sala& Sala::operator=(const Sala& other) {
+    if(this != &other) {
+        tip_sala = other.tip_sala;
+        randuri = other.randuri;
+        locuriPeRand = other.locuriPeRand;
+        locuri = other.locuri;
+    }
+    return *this;
+}
+
 const std::string& Sala::getTipSala() const {
     return tip_sala;
 }

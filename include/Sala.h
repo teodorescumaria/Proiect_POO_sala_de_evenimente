@@ -17,6 +17,10 @@ private:
     std::vector<Loc> locuri;
 public:
     explicit Sala(const std::string& tip_sala = "", int randuri = 1, int locuriPeRand = 1);
+
+    Sala(const Sala& other);
+    Sala& operator=(const Sala& other);
+
     const std::string& getTipSala() const;
     int getRanduri() const;
     int getLocuriPeRand() const;
