@@ -16,7 +16,7 @@ private:
     ManagerEvenimente& operator=(const ManagerEvenimente&) = delete;
 public:
     static ManagerEvenimente& getInstance();
-    ~ManagerEvenimente();
+    ~ManagerEvenimente() noexcept;
 
     void adaugaEveniment(Eveniment* ev);
     void afiseazaEvenimente(std::ostream& out) const;
@@ -27,7 +27,6 @@ public:
     Bilet* vindeBiletVip(const Persoana& persoana, Eveniment& ev, int rand, int coloana, bool arePopcorn, bool areBautura, std::ostream& out);
 
     void afiseazaBilete(std::ostream& out) const;
-
     double calculeazaIncasariTotale() const;
 
 };

@@ -17,7 +17,9 @@ Eveniment::Eveniment(const Eveniment& ev) : nume(ev.nume), tip(ev.tip), data(ev.
   ++nrEvenimente;
 }
 
-Eveniment::~Eveniment() = default;
+Eveniment::~Eveniment() {
+  --nrEvenimente;
+}
 
 double Eveniment::calculeazaVenitMaximTeoretic() const {
   return pretBaza * sala.getRanduri()*sala.getLocuriPeRand();
@@ -62,7 +64,7 @@ bool operator==(const Eveniment& lhs, const Eveniment& rhs) {
 }
 
 std::ostream& operator<<(std::ostream& out, const Eveniment& e) {
-  out<< "Eveniment: "<<e.getTip()<<"] "<<"data: "<<e.getData()<<", durata: "<<e.getDurataMinute()<<" min"<<", pret baza: "<<e.getPretBaza()<<", sala: "<<e.getSala().getTipSala();
+  out<< "Eveniment: "<<e.getTip()<<", data: "<<e.getData()<<", durata: "<<e.getDurataMinute()<<" min"<<", pret baza: "<<e.getPretBaza()<<", sala: "<<e.getSala().getTipSala();
   return out;
 }
 

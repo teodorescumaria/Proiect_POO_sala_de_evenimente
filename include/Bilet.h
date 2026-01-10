@@ -13,7 +13,7 @@ class Bilet
     double pretDeBaza;
     std::string tipEveniment;
   public:
-    Bilet(const Persoana& persoana, const Loc& loc, double pretDeBaza, const std::string& tipEveniment);
+    explicit Bilet(const Persoana& persoana, const Loc& loc, double pretDeBaza, const std::string& tipEveniment);
     virtual ~Bilet() = default;
 
     const Persoana& getPersoana() const;

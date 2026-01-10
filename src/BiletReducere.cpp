@@ -14,5 +14,5 @@ double BiletReducere::calculeazaPret() const {
   return pret;
 }
 std::string BiletReducere::descriere() const {
-  return "Bilet REDUS | " +Bilet::descriere() + " | Pret redus" + std::to_string(calculeazaPret());
+  return "Bilet REDUS | " +Bilet::descriere() + " | Pret redus " + std::to_string(calculeazaPret());
 }

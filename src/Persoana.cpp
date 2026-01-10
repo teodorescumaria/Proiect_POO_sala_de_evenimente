@@ -5,9 +5,12 @@ Persoana::Persoana(const std::string& nume, int anulNasterii) : nume(nume), anul
 const std::string& Persoana::getNume() const{
   return nume;
 }
+int Persoana::anCurent = 2026;
+void Persoana::setAnCurent(int an) {
+  anCurent = an;
+}
 
 int Persoana::getVarsta() const {
-  int anCurent = 2026;
   return anCurent - anulNasterii;
 }
 bool Persoana::esteCopil() const {

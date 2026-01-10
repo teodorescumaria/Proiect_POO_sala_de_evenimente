@@ -3,7 +3,7 @@
 EvenimentTeatru::EvenimentTeatru() : Eveniment(), regizor(""), trupa("") {}
 
 EvenimentTeatru::EvenimentTeatru(const std::string& nume, const std::string& data, double pretBaza, const Sala& sala, const std::string& regizor, const std::string& trupa) : Eveniment(nume, "Teatru", data, pretBaza, sala), regizor(regizor), trupa(trupa) {}
-
+/*
 EvenimentTeatru::EvenimentTeatru(const EvenimentTeatru&other) : Eveniment(other), regizor(other.regizor), trupa(other.trupa) {}
 
 EvenimentTeatru& EvenimentTeatru::operator=(const EvenimentTeatru& other) {
@@ -14,6 +14,7 @@ EvenimentTeatru& EvenimentTeatru::operator=(const EvenimentTeatru& other) {
   }
   return *this;
 }
+*/
 
 const std::string& EvenimentTeatru::getRegizor() const {
   return regizor;

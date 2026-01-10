@@ -6,7 +6,7 @@
 class BiletReducere : public Bilet
 {
   public:
-    BiletReducere(const Persoana& persoana, const Loc& loc, double pretDeBaza, const std::string& tipEveniment);
+    explicit BiletReducere(const Persoana& persoana, const Loc& loc, double pretDeBaza, const std::string& tipEveniment);
     double calculeazaPret() const override;
     std::string descriere() const override;
 };

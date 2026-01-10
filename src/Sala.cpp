@@ -48,7 +48,16 @@ bool Sala::esteLocVIP(int rand, int coloana) const {
     return locuri[index].esteVIP();
 }
 
-Loc Sala::getLoc(int rand, int coloana) const{
+Loc &Sala::getLoc(int rand, int coloana) {
+    if (rand < 1 || rand > randuri || coloana < 1 || coloana > locuriPeRand) {
+        throw EroareLocInvalid("EroareLocInvalid");
+    }
+    int index = (rand-1) * locuriPeRand + (coloana-1);
+    return locuri[index];
+}
+
+
+const Loc& Sala::getLoc(int rand, int coloana) const{
     if (rand < 1 || rand > randuri || coloana < 1 || coloana > locuriPeRand) {
         throw EroareLocInvalid("EroareLocInvalid");
     }

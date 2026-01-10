@@ -148,7 +148,7 @@ int main() {
                 if (b!=nullptr) {
                     std::cout<<"Bilet vandut: "<<b->descriere()<<" | pret final: "<<b->calculeazaPret()<<"\n";
                 }
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                //std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             }
             catch (const std::exception& e) {
                 std::cout<<"Eroare la vanzaare bilet: "<< e.what()<<"\n";

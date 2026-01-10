@@ -6,11 +6,11 @@
 #define SALA_H
 #include <string>
 #include <vector>
+#include <ostream>
 #include "Loc.h"
 
 class Sala
 {
-private:
     std::string tip_sala;
     int randuri;
     int locuriPeRand;
@@ -20,6 +20,7 @@ public:
 
     Sala(const Sala& other);
     Sala& operator=(const Sala& other);
+    ~Sala() = default;
 
     const std::string& getTipSala() const;
     int getRanduri() const;
@@ -29,7 +30,10 @@ public:
     void initializareLocuriVIP(int randVIP);
 
     bool esteLocVIP(int rand, int coloana) const;
-    Loc getLoc(int rand, int coloana) const;
+
+    Loc& getLoc(int rand, int coloana);
+    const Loc& getLoc(int rand, int coloana) const;
+
     void ocupaLoc(int rand, int coloana);
     void afisareLocuri(std::ostream& out) const;
 };

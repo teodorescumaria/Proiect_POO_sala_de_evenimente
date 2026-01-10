@@ -5,14 +5,13 @@
 #include <string>
 
 class EvenimentFilm : public Eveniment {
-private:
     std::string regizor;
     std::string rating;
 public:
     EvenimentFilm();
     EvenimentFilm(const std::string& nume, const std::string& data, double pretBaza, const Sala& sala, const std::string& regizor, const std::string& raiting);
-    EvenimentFilm(const EvenimentFilm& other);
-    EvenimentFilm& operator=(const EvenimentFilm& other);
+    EvenimentFilm(const EvenimentFilm& other) = default;
+    EvenimentFilm& operator=(const EvenimentFilm& other) = default;
 
     ~EvenimentFilm() override = default;
     const std::string& getRegizor() const;
