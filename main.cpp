@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-#include <stdexcept>
+#include <exception>
 
 #include "Persoana.h"
 #include "Sala.h"
