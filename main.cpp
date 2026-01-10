@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <limits>
 
 #include <exception>
 
@@ -53,8 +54,8 @@ int main() {
         std::cout<<"Alegeti optiunea: \n";
         std::cin>>optiune;
 
-        if (!std::cin) {
-            std::cout<<"Eroare la citire \n";
+        if (!std::cin){
+            std::cout<<"Eroare la citire\n";
             break;
         }
         if (optiune == 0) {
@@ -93,6 +94,8 @@ int main() {
             std::cout<<"Anul nasterii persoanei: \n";
             if (!(std::cin>>anulNasterii)) {
                 std::cout<<"Eroare la citire \n";
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 continue;
             }
 
@@ -101,17 +104,23 @@ int main() {
             std::cout<<"Tip bilet (1 = Standard, 2 = Redus, 3 = VIP): \n";
             if (!(std::cin>>tipBilet)) {
                 std::cout<<"Eroare la citire \n";
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 continue;
             }
 
             std::cout<<"Rand: \n";
             if (!(std::cin>>rand)) {
                 std::cout<<"Eroare la citire \n";
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 continue;
             }
             std::cout<<"Coloana: \n";
             if (!(std::cin>>coloana)) {
                 std::cout<<"Eroare la citire \n";
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 continue;
             }
 
@@ -124,9 +133,19 @@ int main() {
                 } else if (tipBilet == 3) {
                     int pop, baut;
                     std::cout<<"Popcorn inclus? (1 = da, 0 = nu): \n";
-                    std::cin>>pop;
+                    if (!(std::cin>>pop)) {
+                        std::cout<<"Eroare la citire \n";
+                        std::cin.clear();
+                        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                        continue;
+                    }
                     std::cout<<"Bautura inclusa? (1 = da, 0 = nu): \n";
-                    std::cin>>baut;
+                    if (!(std::cin>>baut)) {
+                        std::cout<<"Eroare la citire \n";
+                        std::cin.clear();
+                        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                        continue;
+                    }
                     b = manager.vindeBiletVip(p, *eveniment, rand, coloana, pop, baut, std::cout);
                 } else {
                     std::cout<<"Tip bilet invalid\n";
