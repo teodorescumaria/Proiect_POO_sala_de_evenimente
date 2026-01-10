@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <fstream>
 
 #include <stdexcept>
 
@@ -13,20 +12,8 @@
 
 int main() {
 
-    std::ifstream fin("input.txt");
-    std::ofstream fout("output.txt");
-
-    if (!fin.is_open()) {
-        std::cout<<"Nu s-a putut deschide fisierul\n";
-        return 1;
-    }
-    if (!fout.is_open()) {
-        std::cout<<"Nu s-a putut deschide fisierul\n";
-        return 1;
-    }
-
-    fout<<"=== Sistem de vanzare bilete la evenimente === \n";
-    fout<<"\n";
+    std::cout<<"=== Sistem de vanzare bilete la evenimente === \n";
+    std::cout<<"\n";
 
     Sala salaTeatru("Teatru", 5, 10);
     salaTeatru.initializareLocuriVIP(2);
@@ -44,118 +31,118 @@ int main() {
     manager.adaugaEveniment(evConcert);
     manager.adaugaEveniment(evFilm);
 
-    fout<<"Numar total de evenimente create: "<<Eveniment::getNrEvenimente()<<"\n";
-    fout<<"\n";
+    std::cout<<"Numar total de evenimente create: "<<Eveniment::getNrEvenimente()<<"\n";
+    std::cout<<"\n";
 
-    fout<<"Detalii evenimente initiale: \n";
-    fout<<evTeatru->descriere()<<" | trupa: "<<evTeatru->getTrupa()<<"\n";
-    fout<<evConcert->descriere()<<" | artist: "<<evConcert->getArtist()<<" | gen: "<<evConcert->getGenMuzical() << "\n";
-    fout<<evFilm->descriere()<<" | regizor " << evFilm->getRegizor() << " | rating: " << evFilm->getRating()<<"\n";
+    std::cout<<"Detalii evenimente initiale: \n";
+    std::cout<<evTeatru->descriere()<<" | trupa: "<<evTeatru->getTrupa()<<"\n";
+    std::cout<<evConcert->descriere()<<" | artist: "<<evConcert->getArtist()<<" | gen: "<<evConcert->getGenMuzical() << "\n";
+    std::cout<<evFilm->descriere()<<" | regizor " << evFilm->getRegizor() << " | rating: " << evFilm->getRating()<<"\n";
 
 
     int optiune = -1;
 
     while (true) {
-        fout<<"\n === MENIU === \n";
-        fout<<"1. Afiseaza evenimente\n";
-        fout<<"2. Afiseaza bilete vandute\n";
-        fout<<"3. Vinde bilet\n";
-        fout<<"4. Afiseaza incasari totale\n";
-        fout<<"5. Afiseaza locurile pentru un eveniment\n";
-        fout<<"0. Iesire\n";
-        fout<<"Alegeti optiunea: \n";
-        fin>>optiune;
+        std::cout<<"\n === MENIU === \n";
+        std::cout<<"1. Afiseaza evenimente\n";
+        std::cout<<"2. Afiseaza bilete vandute\n";
+        std::cout<<"3. Vinde bilet\n";
+        std::cout<<"4. Afiseaza incasari totale\n";
+        std::cout<<"5. Afiseaza locurile pentru un eveniment\n";
+        std::cout<<"0. Iesire\n";
+        std::cout<<"Alegeti optiunea: \n";
+        std::cin>>optiune;
 
-        if (!fin) {
-            fout<<"Eroare la citire \n";
+        if (!std::cin) {
+            std::cout<<"Eroare la citire \n";
             break;
         }
         if (optiune == 0) {
-            fout<<"LA REVEDERE! \n";
+            std::cout<<"LA REVEDERE! \n";
             break;
         } else if (optiune == 1) {
-            manager.afiseazaEvenimente(fout);
+            manager.afiseazaEvenimente(std::cout);
         } else if (optiune == 2) {
-            manager.afiseazaBilete(fout);
+            manager.afiseazaBilete(std::cout);
         } else if (optiune == 3) {
-            fout<<"\n --- Vanzare bilet ---\n";
-            fout<<"Introdu numele evenimentului (Iona / Vama / Avatar): \n";
+            std::cout<<"\n --- Vanzare bilet ---\n";
+            std::cout<<"Introdu numele evenimentului (Iona / Vama / Avatar): \n";
             std::string numeEveniment;
-            fin>>numeEveniment;
+            std::cin>>numeEveniment;
 
             Eveniment* eveniment = manager.gasesteEvenimentDupaNume(numeEveniment);
             if (!eveniment) {
-                fout<<"Evenimentul nu a fost gasit. \n";
+                std::cout<<"Evenimentul nu a fost gasit. \n";
                 continue;
             }
 
-            fout<<"\nHarta locurilor\n";
-            eveniment->getSala().afisareLocuri(fout);
-            fout<<"\n(- loc liber, V loc Vip, X loc ocupat)\n";
-            fout<<"\n";
+            std::cout<<"\nHarta locurilor\n";
+            eveniment->getSala().afisareLocuri(std::cout);
+            std::cout<<"\n(- loc liber, V loc Vip, X loc ocupat)\n";
+            std::cout<<"\n";
 
-            fout<<"Nume persoana: \n";
+            std::cout<<"Nume persoana: \n";
             std::string numePersoana;
-            fin>>std::ws; //ca sa sara peste new line
-            std::getline(fin, numePersoana);
+            std::cin>>std::ws; //ca sa sara peste new line
+            std::getline(std::cin, numePersoana);
 
-            fout<<"Anul nasterii persoanei: \n";
+            std::cout<<"Anul nasterii persoanei: \n";
             int anulNasterii;
-            fin>>anulNasterii;
+            std::cin>>anulNasterii;
 
             Persoana p(numePersoana, anulNasterii);
 
-            fout<<"Tip bilet (1 = Standard, 2 = Redus, 3 = VIP): \n";
+            std::cout<<"Tip bilet (1 = Standard, 2 = Redus, 3 = VIP): \n";
             int tipBilet;
-            fin>>tipBilet;
+            std::cin>>tipBilet;
 
-            fout<<"Rand: \n";
+            std::cout<<"Rand: \n";
             int rand;
-            fin>>rand;
-            fout<<"Coloana: \n";
+            std::cin>>rand;
+            std::cout<<"Coloana: \n";
             int coloana;
-            fin>>coloana;
+            std::cin>>coloana;
 
             const Bilet* b = nullptr;
 
             try {
 
                 if (tipBilet == 1) {
-                    b = manager.vindeBiletStandard(p, *eveniment, rand, coloana, fout);
+                    b = manager.vindeBiletStandard(p, *eveniment, rand, coloana, std::cout);
                 } else if (tipBilet == 2) {
-                    b = manager.vindeBiletReducere(p, *eveniment, rand, coloana, fout);
+                    b = manager.vindeBiletReducere(p, *eveniment, rand, coloana, std::cout);
                 } else if (tipBilet == 3) {
                     int pop, baut;
-                    fout<<"Popcorn inclus? (1 = da, 0 = nu): \n";
-                    fin>>pop;
-                    fout<<"Bautura inclusa? (1 = da, 0 = nu): \n";
-                    fin>>baut;
-                    b = manager.vindeBiletVip(p, *eveniment, rand, coloana, pop, baut, fout);
+                    std::cout<<"Popcorn inclus? (1 = da, 0 = nu): \n";
+                    std::cin>>pop;
+                    std::cout<<"Bautura inclusa? (1 = da, 0 = nu): \n";
+                    std::cin>>baut;
+                    b = manager.vindeBiletVip(p, *eveniment, rand, coloana, pop, baut, std::cout);
                 } else {
-                    fout<<"Tip bilet invalid\n";
+                    std::cout<<"Tip bilet invalid\n";
                 }
                 if (b!=nullptr) {
-                    fout<<"Bilet vandut: "<<b->descriere()<<" | pret final: "<<b->calculeazaPret()<<"\n";
+                    std::cout<<"Bilet vandut: "<<b->descriere()<<" | pret final: "<<b->calculeazaPret()<<"\n";
                 }
             }
             catch (const std::exception& e) {
-                fout<<"Eroare la vanzaare bilet: "<< e.what()<<"\n";
+                std::cout<<"Eroare la vanzaare bilet: "<< e.what()<<"\n";
             }
         } else if (optiune == 4) {
-            fout<<"Incasari totale: "<<manager.calculeazaIncasariTotale()<<"lei \n";
+            std::cout<<"Incasari totale: "<<manager.calculeazaIncasariTotale()<<"lei \n";
         } else if (optiune == 5) {
-            fout<<"Introdu numele evenimentului: \n";
+            std::cout<<"Introdu numele evenimentului: \n";
             std::string numeEv;
-            fin >> numeEv;
+            std::cin >> numeEv;
             Eveniment* ev = manager.gasesteEvenimentDupaNume(numeEv);
             if(!ev) {
-                fout<<"Evenimentul nu a fost gasit. \n";
+                std::cout<<"Evenimentul nu a fost gasit. \n";
             } else {
-                ev->getSala().afisareLocuri(fout);
+                ev->getSala().afisareLocuri(std::cout);
             }
         }
         else {
-                fout<<"Optiune invalida\n";
+                std::cout<<"Optiune invalida\n";
             }
 
         }
