@@ -54,7 +54,9 @@ Programul afiseaza un meniu interactiv similar cu:
 
 ### Autor:
 Proiect realizat de: Teodorescu Maria
+
 Grupa: 211
+
 Template folosit: https://github.com/Ionnier/oop-template
 
 ## Instrucțiuni de compilare
