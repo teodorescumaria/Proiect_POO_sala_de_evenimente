@@ -13,8 +13,8 @@ class Loc
 
     Loc(const Loc& other) = default;
     Loc& operator=(const Loc& other) = default;
-    Loc(Loc&& other) = default;
-    Loc& operator=(Loc&& other) = default;
+    Loc(Loc&& other) noexcept = default;
+    Loc& operator=(Loc&& other) noexcept = default;
     ~Loc() = default;
 
     int getRand() const;

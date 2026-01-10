@@ -49,20 +49,44 @@ Eveniment *ManagerEvenimente::gasesteEvenimentDupaNume(const std::string &nume) 
 }
 
 Bilet *ManagerEvenimente::vindeBiletStandard(const Persoana &persoana, Eveniment &ev, int rand, int coloana, std::ostream& out) {
+
+    out<<"Debug incepem vindeBiletStandard";
+    out.flush();
     Sala& sala = ev.getSala();
+
+    out << "DEBUG: Obtinem loc\n";
+    out.flush();
     Loc& loc = sala.getLoc(rand, coloana);
+
+    out << "DEBUG: Verificam daca e ocupat\n";
+    out.flush();
     if (loc.esteOcupat()) {
         out<<"Locul ("<<rand<<", "<<coloana<<") este deja ocupat. \n";
         return nullptr;
     }
+
+    out << "DEBUG: Verificam daca e VIP\n";
+    out.flush();
     if (sala.esteLocVIP(rand, coloana)) {
         out<<"Locul ("<<rand<<", "<<coloana<<") este VIP\n";
         out<<"Pentru acest loc trebuie sa achizitionati loc VIP.\n";
         return nullptr;
     }
+
+    out << "DEBUG: Ocupam locul\n";
+    out.flush();
     loc.ocupa();
+
+    out << "DEBUG: Cream biletul\n";
+    out.flush();
     Bilet* b = new BiletStandard(persoana, loc, ev.getPretBaza(), ev.getTip());
+
+    out << "DEBUG: Adaugam in vector\n";
+    out.flush();
     bileteVandute.push_back(b);
+
+    out << "DEBUG: Returnam biletul\n";
+    out.flush();
     return b;
 }
 
@@ -120,3 +144,20 @@ double ManagerEvenimente::calculeazaIncasariTotale() const {
     }
     return total;
 }
+
+/*
+Sala& sala = ev.getSala();
+Loc& loc = sala.getLoc(rand, coloana);
+if (loc.esteOcupat()) {
+out<<"Locul ("<<rand<<", "<<coloana<<") este deja ocupat. \n";
+return nullptr;
+}
+if (sala.esteLocVIP(rand, coloana)) {
+out<<"Locul ("<<rand<<", "<<coloana<<") este VIP\n";
+out<<"Pentru acest loc trebuie sa achizitionati loc VIP.\n";
+return nullptr;
+}
+loc.ocupa();
+Bilet* b = new BiletStandard(persoana, loc, ev.getPretBaza(), ev.getTip());
+bileteVandute.push_back(b);
+return b;*/
